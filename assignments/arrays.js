@@ -78,9 +78,9 @@ let inventory = [
 function findCar(carID) {
   for (let i = 0; i < inventory.length; i++) {
     if (carID === inventory[i].id) {
-      return `Car 33 is a ${inventory[i].car_year} ${inventory[i].car_make} ${
-        inventory[i].car_model
-      }`;
+      return `Car ${carID} is a ${inventory[i].car_year} ${
+        inventory[i].car_make
+      } ${inventory[i].car_model}`;
     }
   }
 }
@@ -146,4 +146,4 @@ let BMWAndAudi = () => {
 
   return newArray;
 };
-console.table(BMWAndAudi());
+console.log(JSON.stringify(BMWAndAudi()));
