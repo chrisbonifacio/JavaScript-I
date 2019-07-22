@@ -76,13 +76,15 @@ let inventory = [
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
 
 function findCar(carID) {
-  for (let i = 0; i < inventory.length; i++) {
-    if (carID === inventory[i].id) {
-      return `Car ${carID} is a ${inventory[i].car_year} ${
-        inventory[i].car_make
-      } ${inventory[i].car_model}`;
+  let foundCar = {};
+  inventory.forEach(item => {
+    if (carID === item.id) {
+      return (foundCar = `Car ${carID} is a ${item.car_year} ${item.car_make} ${
+        item.car_model
+      }`);
     }
-  }
+  });
+  return foundCar;
 }
 console.log(findCar(33));
 
@@ -100,14 +102,10 @@ console.log(lastCar());
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
-let carModels = () => {
-  newArray = [];
-  for (let i = 0; i < inventory.length; i++) {
-    newArray.push(inventory[i].car_model);
-  }
-  return newArray.sort();
-};
-console.table(carModels());
+let carModels = inventory.map(item => {
+  return item.car_model;
+});
+console.table(carModels.sort());
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
