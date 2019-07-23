@@ -105,18 +105,21 @@ const parent = {
     age: 50,
     grandchild: {
       name: "Sam",
-      age: 30,
-      speak: function() {
-        return "Hi, my name is " + this.name;
-      }
-    },
-    speak: function() {
-      return "Hi, my name is " + this.name;
+      age: 30
     }
-  },
-  speak: function() {
-    return "Hi, my name is " + this.name;
   }
+};
+
+parent.speak = function() {
+  return "Hi, my name is " + this.name;
+};
+
+parent.child.speak = function() {
+  return "Hi, my name is " + this.name;
+};
+
+parent.child.grandchild.speak = function() {
+  return "Hi, my name is " + this.name;
 };
 
 // Log the parent object's name
